@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NexClips – Stream VODs into Ready-to-Post Clips</title>
+<meta name="description" content="Send your stream VOD, get vertical TikTok, Reels and Shorts clips plus thumbnails. Starter pack $25 for 10 clips.">
+<style>
+:root{--bg:#0b0b14;--card:#151527;--line:#2a2a45;--txt:#e8e8f5;--mut:#9a9ab8;--a1:#8b5cf6;--a2:#22d3ee;--a3:#f43f5e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+a{color:var(--a2)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,11,20,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-weight:900;font-size:1.3rem;letter-spacing:.5px;text-decoration:none;color:var(--txt)}
+.logo span{background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--a1),#6d28d9);box-shadow:0 0 24px rgba(139,92,246,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:transparent;border:1px solid var(--a2);color:var(--a2);box-shadow:none}
+.btn.sm{padding:8px 14px;font-size:.9rem}
+section{padding:64px 0}
+h1{font-size:2.3rem;line-height:1.15;font-weight:900}
+h2{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.sub{color:var(--mut);margin-bottom:28px}
+.grad{background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{padding:72px 0 56px;background:radial-gradient(600px 300px at 20% 0%,rgba(139,92,246,.25),transparent),radial-gradient(500px 300px at 90% 30%,rgba(34,211,238,.15),transparent)}
+.hero p{color:var(--mut);font-size:1.1rem;margin:18px 0 26px;max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.promo{display:inline-block;margin-bottom:18px;padding:6px 12px;border-radius:999px;border:1px solid var(--a3);color:#fda4af;font-size:.85rem;font-weight:600}
+.tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:.8rem;padding:4px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line);color:var(--mut)}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.step .n{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:900;background:linear-gradient(135deg,var(--a1),var(--a2));margin-bottom:14px}
+.step h3{margin-bottom:6px}
+.step p{color:var(--mut)}
+.price{display:flex;flex-direction:column}
+.price.feat{border-color:var(--a1);box-shadow:0 0 30px rgba(139,92,246,.25)}
+.price .badge{align-self:flex-start;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--a1);margin-bottom:10px}
+.price .amt{font-size:2.6rem;font-weight:900;margin:6px 0}
+.price .amt small{font-size:1rem;color:var(--mut);font-weight:500}
+.price ul{list-style:none;margin:14px 0 22px;color:var(--mut);flex:1}
+.price li{padding:5px 0 5px 24px;position:relative}
+.price li:before{content:"✓";position:absolute;left:0;color:var(--a2);font-weight:900}
+.price .btn{text-align:center}
+.ph-note{border:1px dashed var(--a3);color:#fda4af;border-radius:12px;padding:12px 16px;font-size:.9rem;margin-bottom:20px}
+.clips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.clip{aspect-ratio:9/16;border:2px dashed var(--line);border-radius:14px;display:grid;place-items:center;text-align:center;color:var(--mut);font-size:.85rem;padding:10px;background:repeating-linear-gradient(45deg,#11111f,#11111f 10px,#141426 10px,#141426 20px)}
+.clip b{display:block;font-size:1.6rem;color:var(--line)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}
+details p{color:var(--mut);margin-top:10px}
+.order{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(34,211,238,.10));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.order ol{margin:0 0 24px 20px;color:var(--mut)}
+.order ol li{margin:6px 0}
+.order .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+footer{padding:30px 0;color:var(--mut);font-size:.9rem;text-align:center}
+@media(min-width:720px){
+ h1{font-size:3.4rem}
+ .grid.three{grid-template-columns:repeat(3,1fr)}
+ .grid.two{grid-template-columns:repeat(2,1fr)}
+ .clips{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#">Nex<span>Clips</span></a>
+  <a class="btn sm" href="#order">Order clips</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="promo">🎁 Launch offer: your first 5 clips free</div>
+  <h1>Your stream VODs,<br>turned into <span class="grad">clips that post themselves.</span></h1>
+  <p>Send us a link to your stream VOD. We send back ready-to-post vertical clips for TikTok, Reels and Shorts, plus thumbnails to go with them.</p>
+  <div class="ctas">
+    <a class="btn" href="#pricing">See pricing</a>
+    <a class="btn alt" href="#how">How it works</a>
+  </div>
+  <div class="tags"><span>9:16 vertical</span><span>TikTok</span><span>Instagram Reels</span><span>YouTube Shorts</span><span>Thumbnails included</span></div>
+</div></header>
+
+<section id="how"><div class="wrap">
+  <h2>How it works</h2>
+  <p class="sub">Three steps. You keep streaming, we handle the clipping.</p>
+  <div class="grid three">
+    <div class="card step"><div class="n">1</div><h3>Send your VOD</h3><p>Paste a link to a past stream (Twitch, YouTube, Kick, or a cloud drive file) and tell us your game and any moments you want.</p></div>
+    <div class="card step"><div class="n">2</div><h3>We cut your clips</h3><p>We find the best moments and cut them into vertical clips with captions, plus a thumbnail for each.</p></div>
+    <div class="card step"><div class="n">3</div><h3>Post and grow</h3><p>You get your clips within 48 hours, ready to upload to TikTok, Reels and Shorts.</p></div>
+  </div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <h2>Pricing</h2>
+  <p class="sub">Simple pricing, no contracts. Early clients get their first 5 clips free.</p>
+  <div class="grid two">
+    <div class="card price">
+      <h3>Starter Pack</h3>
+      <div class="amt">$25 <small>one-time</small></div>
+      <ul><li>10 vertical clips from your VOD</li><li>Captions on every clip</li><li>Thumbnails included</li><li>Delivered within 48 hours</li></ul>
+      <a class="btn" href="#order">Get the Starter Pack</a>
+    </div>
+    <div class="card price feat">
+      <span class="badge">Best for regular streamers</span>
+      <h3>Weekly Plan</h3>
+      <div class="amt">$99 <small>/ month</small></div>
+      <ul><li>One clip batch every week</li><li>Send a new VOD each week</li><li>Captions and thumbnails included</li><li>Each batch delivered within 48 hours</li><li>Cancel anytime</li></ul>
+      <a class="btn" href="#order">Start the Weekly Plan</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="samples"><div class="wrap">
+  <h2>Sample clips</h2>
+  <p class="sub">Real examples coming soon.</p>
+    <div class="clips">
+    <div class="clip"><div><b>▶</b>Sample clip 1<br>Samples coming soon</div></div>
+    <div class="clip"><div><b>▶</b>Sample clip 2<br>Samples coming soon</div></div>
+    <div class="clip"><div><b>▶</b>Sample clip 3<br>Samples coming soon</div></div>
+    <div class="clip"><div><b>▶</b>Sample clip 4<br>Samples coming soon</div></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>FAQ</h2>
+  <p class="sub">Quick answers before you order.</p>
+  <details open><summary>How fast do I get my clips?</summary><p>Within 48 hours after we receive your VOD link and payment.</p></details>
+  <details><summary>What games do you clip?</summary><p>Any game. We started with Apex Legends and Dota 2, and we also clip other shooters, MOBAs, variety and Just Chatting streams.</p></details>
+  <details><summary>How do I send my VOD?</summary><p>DM us on TikTok with a link to your stream: a Twitch or Kick VOD, a YouTube video (unlisted is fine), or a Google Drive or Dropbox file. Add timestamps if there are moments you want us to use.</p></details>
+  <details><summary>What do I get back?</summary><p>Vertical 9:16 MP4 clips with captions, ready for TikTok, Reels and Shorts, plus a thumbnail image for each clip.</p></details>
+  <details><summary>How does the free launch offer work?</summary><p>Early clients get their first 5 clips free. In return, we ask for a short, honest testimonial we can share.</p></details>
+  <details><summary>Can I cancel the Weekly Plan?</summary><p>Yes. The plan is month to month and you can cancel anytime.</p></details>
+</div></section>
+
+<section id="order" class="order"><div class="wrap">
+  <h2>Order your clips</h2>
+  <p class="sub">Ready? Here's what happens next.</p>
+  <ol>
+    <li>Pick a plan: Starter Pack or Weekly Plan.</li>
+    <li>Send us a DM on TikTok with your VOD link, game, and socials. We'll reply with a secure payment link. (Contact form coming soon.)</li>
+    <li>Get your clips and thumbnails within 48 hours.</li>
+  </ol>
+  <div class="ctas">
+    <a class="btn" href="#order">Starter Pack: $25</a>
+    <a class="btn alt" href="#order">Weekly Plan: $99/mo</a>
+  </div>
+  <p class="sub" style="margin:0">Want the 5 free clips? DM us on TikTok with your VOD link and say "free clips".</p>
+</div></section>
+
+<footer><div class="wrap">
+  <p>NexClips is run by Luis, an Apex Legends and Dota 2 streamer in Naples, Florida.</p>
+  <p>Not happy with your clips? We'll redo them or refund you.</p>
+  <p>NexClips, Naples, Florida · Order via DM on TikTok · Contact form coming soon</p>
+  <p>Built by the <a href="https://nexparty.onrender.com" target="_blank" rel="noopener">NexParty</a> team · © 2026 NexClips</p>
+</div></footer>
+
+</body>
+</html>
