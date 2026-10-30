@@ -1,5 +1,5 @@
 // The only place site URLs are set. After changing siteUrl, regenerate
-// public/robots.txt and public/sitemap.xml:
+// public/robots.txt, public/sitemap.xml, and the absolute og:/twitter: URLs:
 //   node scripts/generate-seo.mjs
 // goatcounter is the GoatCounter site code (the subdomain). Leave it empty
 // and the analytics script is not loaded.
