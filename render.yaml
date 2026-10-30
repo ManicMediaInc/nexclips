@@ -9,6 +9,13 @@ services:
     # public/ is already the publishable site. `true` satisfies the required build command.
     buildCommand: "true"
     staticPublishPath: ./public
+    routes:
+      - type: redirect
+        source: /samples/s1.mp4
+        destination: /media/sample-clip.mp4
+      - type: redirect
+        source: /samples/s1.jpg
+        destination: /media/sample-poster.jpg
     headers:
       # CSP is a document policy. Apply it to HTML only. Chrome's image and video
       # viewers use inline styles, so a site-wide CSP reports violations when those

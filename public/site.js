@@ -1,14 +1,29 @@
+function stripeClientReference(ref, user) {
+  function slug(value) {
+    return String(value || "").trim().replace(/[^A-Za-z0-9_-]/g, "_");
+  }
+  var r = slug(ref);
+  var u = slug(user);
+  var id = "";
+  if (r && u) id = "ref-" + r + "_u-" + u;
+  else if (r) id = "ref-" + r;
+  else if (u) id = "u-" + u;
+  if (id.length > 200) id = id.slice(0, 200);
+  return id;
+}
+
 (function () {
   var cfg = window.NEX_CONFIG || {};
   var siteUrl = String(cfg.siteUrl || "").replace(/\/+$/, "");
   var nexpartyUrl = String(cfg.nexpartyUrl || "").replace(/\/+$/, "");
   var code = String(cfg.goatcounter || "").trim();
+  var contactEmail = String(cfg.contactEmail || "").trim();
   var KEY = "nexclips.attribution";
   var MAX_AGE = 30 * 24 * 60 * 60 * 1000;
   var MAX_LEN = 96;
 
   function clean(value) {
-    return String(value || "").replace(/[\u0000-\u001f\u007f]/g, "").trim().slice(0, MAX_LEN);
+    return String(value || "").replace(/[^A-Za-z0-9_-]/g, "").slice(0, MAX_LEN);
   }
 
   function setHref(id, href) {
@@ -79,13 +94,15 @@
   var mailtos = document.querySelectorAll('a[href^="mailto:"]');
   for (var i = 0; i < mailtos.length; i++) {
     var link = mailtos[i];
-    var email = link.getAttribute("href").replace(/^mailto:/i, "").split("?")[0];
+    var email = contactEmail || link.getAttribute("href").replace(/^mailto:/i, "").split("?")[0];
+    if (contactEmail && link.hasAttribute("data-contact")) link.textContent = contactEmail;
     var subject = link.getAttribute("data-subject") || "NexClips";
     link.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   }
 
-  if (ref || user) {
-    var stripeId = ("ref=" + ref + ";u=" + user).slice(0, 200);
+  var stripeId = stripeClientReference(ref, user);
+  if (stripeId && !/^[A-Za-z0-9_-]{1,200}$/.test(stripeId)) stripeId = "";
+  if (stripeId) {
     var stripeLinks = document.querySelectorAll("a[data-stripe]");
     for (var s = 0; s < stripeLinks.length; s++) {
       var url = new URL(stripeLinks[s].href);

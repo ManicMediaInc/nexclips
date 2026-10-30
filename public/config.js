@@ -6,5 +6,6 @@
 window.NEX_CONFIG = {
   siteUrl: "https://nexclips.onrender.com",
   nexpartyUrl: "https://nexparty.onrender.com",
+  contactEmail: "nexclips.feminine462@aleeas.com",
   goatcounter: ""
 };
