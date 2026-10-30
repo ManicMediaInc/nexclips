@@ -27,4 +27,38 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<!-- Generated from pub
 
 fs.writeFileSync(path.join(root, "public", "robots.txt"), robots);
 fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sitemap);
-console.log(`wrote robots.txt and sitemap.xml for ${siteUrl}`);
+
+const absoluteTags = [
+  [/property="og:url" content="[^"]*"/, `property="og:url" content="${siteUrl}/"`],
+  [/property="og:image" content="[^"]*"/, `property="og:image" content="${siteUrl}/og-image-1200x630.png"`],
+  [/name="twitter:image" content="[^"]*"/, `name="twitter:image" content="${siteUrl}/twitter-image-1200x600.png"`],
+];
+
+function htmlFiles(dir) {
+  const found = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) found.push(...htmlFiles(full));
+    else if (entry.name.endsWith(".html")) found.push(full);
+  }
+  return found;
+}
+
+const pagesOnDisk = htmlFiles(path.join(root, "public"));
+if (!pagesOnDisk.length) {
+  console.error("no HTML pages under public/");
+  process.exit(1);
+}
+for (const file of pagesOnDisk) {
+  let html = fs.readFileSync(file, "utf8");
+  if (!html.includes("<head")) continue;
+  for (const [pattern, value] of absoluteTags) {
+    if (!pattern.test(html)) {
+      console.error(`missing ${pattern} in ${path.relative(root, file)}`);
+      process.exit(1);
+    }
+    html = html.replace(pattern, value);
+  }
+  fs.writeFileSync(file, html);
+}
+console.log(`wrote robots.txt, sitemap.xml, and absolute social URLs for ${siteUrl}`);

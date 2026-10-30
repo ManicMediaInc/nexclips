@@ -128,8 +128,37 @@ h3 { font-size: 1.15rem; }
   color: var(--cyan);
 }
 
-.hero { padding: 72px 0 56px; }
-.hero p { color: var(--muted); font-size: 1.1rem; margin: 18px 0 26px; max-width: 560px; }
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 800px;
+  padding: 56px 0;
+  background-color: #0B1E3A;
+  background-image: url("/media/hero-desktop-2880x1600.png");
+  background-image: image-set(
+    url("/media/hero-desktop-2880x1600.webp") type("image/webp"),
+    url("/media/hero-desktop-2880x1600.png") type("image/png")
+  );
+  background-repeat: no-repeat;
+  background-position: right center;
+  /* Width-fit keeps the navy text column on the left 46% at every desktop
+     width. At 1440x800 this matches cover. */
+  background-size: 100% auto;
+}
+.hero .wrap {
+  width: 46%;
+  max-width: 46%;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: clamp(20px, 8.33vw, 120px);
+  padding-right: 28px;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 3.6vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.hero p { color: var(--muted); font-size: 1.1rem; margin: 18px 0 26px; max-width: 36rem; }
 .hero .ctas, .order .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
 .promo {
   display: inline-block;
@@ -137,6 +166,11 @@ h3 { font-size: 1.15rem; }
   padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
 }
 .tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
 .tags span {
@@ -260,6 +294,33 @@ footer .trust { color: var(--text); margin-bottom: 8px; }
   .grid.three { grid-template-columns: repeat(3, 1fr); }
   .vclips { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; }
   .vclip { flex: none; }
+}
+@media (max-width: 640px) {
+  .hero {
+    align-items: flex-start;
+    min-height: 600px;
+    /* Bottom padding tracks the art band (about 27.7% of the mobile image,
+       and the image is 1200/780 of the viewport width) so the text stack
+       stays on the navy above the art. A taller headline grows the hero
+       instead of covering the clips. */
+    padding: 28px 0 calc(43% + 36px);
+    background-image: url("/media/hero-mobile-780x1200.png");
+    background-image: image-set(
+      url("/media/hero-mobile-780x1200.webp") type("image/webp"),
+      url("/media/hero-mobile-780x1200.png") type("image/png")
+    );
+    background-position: center bottom;
+    background-size: 100% auto;
+  }
+  .hero .wrap {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .hero h1 { font-size: 2.25rem; }
+  .hero p { font-size: 1rem; margin: 14px 0 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

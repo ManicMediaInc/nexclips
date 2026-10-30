@@ -20,12 +20,13 @@ services:
       # CSP is a document policy. Apply it to HTML only. Chrome's image and video
       # viewers use inline styles, so a site-wide CSP reports violations when those
       # files are opened directly. The page's own subresources stay restricted.
+      # manifest-src is 'self' so /site.webmanifest can load. Images stay on img-src 'self'.
       - path: /
         name: Content-Security-Policy
-        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
+        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'self'"
       - path: /index.html
         name: Content-Security-Policy
-        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
+        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'self'"
       - path: /*
         name: X-Frame-Options
         value: DENY
