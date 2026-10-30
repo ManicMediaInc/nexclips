@@ -7,18 +7,20 @@
 <meta name="description" content="Send your stream VOD, get vertical TikTok, Reels and Shorts clips plus thumbnails. Starter pack $25 for 10 clips.">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 
 <nav><div class="wrap">
-  <a class="logo" href="#">Nex<span>Clips</span></a>
-  <a class="btn sm" href="#order">Order clips</a>
+  <a class="logo" href="/">
+    <img src="brand/nexclips-mark.svg" alt="" width="36" height="36">
+    <span class="wordmark">Nex<span>Clips</span></span>
+  </a>
+  <a class="btn sm" href="#order" data-track="order-start">Order clips</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <div class="promo">🎁 Launch offer: your first 5 clips free</div>
-  <h1>Your stream VODs,<br>turned into <span class="grad">clips that post themselves.</span></h1>
+  <p class="promo kicker">Launch offer · your first 5 clips free</p>
+  <h1>Your stream VODs,<br>turned into <span class="accent">clips that post themselves.</span></h1>
   <p>Send us a link to your stream VOD. We send back ready-to-post vertical clips for TikTok, Reels and Shorts, plus thumbnails to go with them.</p>
   <div class="ctas">
     <a class="btn" href="#pricing">See pricing</a>
@@ -45,21 +47,21 @@
       <h3>Starter Pack</h3>
       <div class="amt">$25 <small>one-time</small></div>
       <ul><li>10 vertical clips from your VOD</li><li>Captions on every clip</li><li>Thumbnails included</li><li>Delivered within 48 hours</li></ul>
-      <a class="btn" href="https://buy.stripe.com/fZu9AS1xh1r5fpeg2z3gk00">Get the Starter Pack</a>
+      <a class="btn alt" data-stripe data-track="order-start" href="https://buy.stripe.com/fZu9AS1xh1r5fpeg2z3gk00">Get the Starter Pack</a>
     </div>
     <div class="card price feat">
-      <span class="badge">Best for regular streamers</span>
+      <span class="badge kicker">Best for regular streamers</span>
       <h3>Weekly Plan</h3>
       <div class="amt">$99 <small>/ month</small></div>
       <ul><li>One clip batch every week</li><li>Send a new VOD each week</li><li>Captions and thumbnails included</li><li>Each batch delivered within 48 hours</li><li>Cancel anytime</li></ul>
-      <a class="btn" href="https://buy.stripe.com/4gM14m7VFb1Fcd26rZ3gk01">Start the Weekly Plan</a>
+      <a class="btn" data-stripe data-track="order-start" href="https://buy.stripe.com/4gM14m7VFb1Fcd26rZ3gk01">Start the Weekly Plan</a>
     </div>
     <div class="card price">
-      <span class="badge accent">Also offered</span>
+      <span class="badge quiet kicker">Also offered</span>
       <h3>Stream Bot Setup</h3>
       <div class="amt">$149 <small>one-time</small></div>
       <ul><li>Go-live checklist bot</li><li>Auto-clipping of your streams</li><li>Social post maker</li><li>We set it all up for you</li></ul>
-      <a class="btn" href="https://buy.stripe.com/4gMcN47VFedR4KA2bJ3gk02">Get the Bot Setup</a>
+      <a class="btn alt" data-stripe data-track="order-start" href="https://buy.stripe.com/4gMcN47VFedR4KA2bJ3gk02">Get the Bot Setup</a>
     </div>
   </div>
 </div></section>
@@ -67,7 +69,7 @@
 <section id="samples"><div class="wrap">
   <h2>Sample clips</h2>
   <p class="sub">Real edits from public stream footage. Tap to play.</p>
-    <div class="vclips">
+  <div class="vclips">
     <figure class="vclip"><video src="samples/s1.mp4" poster="samples/s1.jpg" controls playsinline muted preload="none"></video><figcaption>Apex: facecam zooms + captions<small>Footage: <a href="https://www.youtube.com/watch?v=7mY62loYPY8" target="_blank" rel="noopener">shroud</a> (CC BY)</small></figcaption></figure>
     <figure class="vclip"><video src="samples/s2.mp4" poster="samples/s2.jpg" controls playsinline muted preload="none"></video><figcaption>Apex: pop captions + slow-mo<small>Footage: <a href="https://www.youtube.com/watch?v=MqsP5So0SSA" target="_blank" rel="noopener">Shamel Croskey LIVE</a> (CC BY)</small></figcaption></figure>
     <figure class="vclip"><video src="samples/s3.mp4" poster="samples/s3.jpg" controls playsinline muted preload="none"></video><figcaption>Dota 2: action zooms + hype text<small>Footage: <a href="https://www.youtube.com/watch?v=DVyawmkqADg" target="_blank" rel="noopener">VFragged</a> (CC BY)</small></figcaption></figure>
@@ -86,28 +88,42 @@
   <details><summary>Can I cancel the Weekly Plan?</summary><p>Yes. The plan is month to month and you can cancel anytime.</p></details>
 </div></section>
 
-<section id="order" class="order"><div class="wrap">
-  <h2>Order your clips</h2>
-  <p class="sub">Ready? Here's what happens next.</p>
-  <ol>
-    <li>Pick a plan: Starter Pack, Weekly Plan, or Stream Bot Setup.</li>
-    <li>Pay securely with Stripe using a button below, and add your channel link at checkout. Then email your VOD link to <a href="mailto:nexclips.feminine462@aleeas.com">nexclips.feminine462@aleeas.com</a> or DM us on TikTok.</li>
-    <li>Get your clips and thumbnails within 48 hours.</li>
-  </ol>
-  <div class="ctas">
-    <a class="btn" href="https://buy.stripe.com/fZu9AS1xh1r5fpeg2z3gk00">Starter Pack: $25</a>
-    <a class="btn alt" href="https://buy.stripe.com/4gM14m7VFb1Fcd26rZ3gk01">Weekly Plan: $99/mo</a>
-    <a class="btn alt" href="https://buy.stripe.com/4gMcN47VFedR4KA2bJ3gk02">Stream Bot Setup: $149</a>
-  </div>
-  <p class="sub flush">Want the 5 free clips? DM us on TikTok with your VOD link and say "free clips".</p>
-</div></section>
+<section id="order" class="order">
+  <form id="order-form">
+    <input type="hidden" name="ref" value="">
+    <input type="hidden" name="u" value="">
+    <div class="wrap">
+      <h2>Order your clips</h2>
+      <p class="sub">Ready? Here's what happens next.</p>
+      <ol>
+        <li>Pick a plan: Starter Pack, Weekly Plan, or Stream Bot Setup.</li>
+        <li>Pay securely with Stripe using a button below, and add your channel link at checkout. Then email your VOD link to <a data-subject="NexClips order" data-track="order-submit" href="mailto:nexclips.feminine462@aleeas.com">nexclips.feminine462@aleeas.com</a> or DM us on TikTok.</li>
+        <li>Get your clips and thumbnails within 48 hours.</li>
+      </ol>
+      <div class="ctas">
+        <a class="btn alt" data-stripe data-track="order-submit" href="https://buy.stripe.com/fZu9AS1xh1r5fpeg2z3gk00">Starter Pack: $25</a>
+        <a class="btn" data-stripe data-track="order-submit" href="https://buy.stripe.com/4gM14m7VFb1Fcd26rZ3gk01">Weekly Plan: $99/mo</a>
+        <a class="btn alt" data-stripe data-track="order-submit" href="https://buy.stripe.com/4gMcN47VFedR4KA2bJ3gk02">Stream Bot Setup: $149</a>
+      </div>
+      <p class="sub flush">Want the 5 free clips? DM us on TikTok with your VOD link and say "free clips".</p>
+    </div>
+  </form>
+</section>
 
 <footer><div class="wrap">
   <p>NexClips is run by Luis, an Apex Legends and Dota 2 streamer in Naples, Florida.</p>
-  <p>Not happy with your clips? We'll redo them or refund you.</p>
-  <p>NexClips, Naples, Florida · Contact: <a href="mailto:nexclips.feminine462@aleeas.com">nexclips.feminine462@aleeas.com</a></p>
-  <p>Built by the <a href="https://nexparty.onrender.com" target="_blank" rel="noopener">NexParty</a> team · © 2026 NexClips</p>
+  <p class="trust">Not happy with your clips? We'll redo them or refund you.</p>
+  <p class="kicker">A Nex company</p>
+  <nav class="footer-links" aria-label="Nex">
+    <a href="/">NexClips</a>
+    <a id="link-nexparty">NexParty</a>
+    <a id="link-privacy">Privacy</a>
+    <a id="link-terms">Terms</a>
+  </nav>
+  <p>Contact: <a data-subject="NexClips" href="mailto:nexclips.feminine462@aleeas.com">nexclips.feminine462@aleeas.com</a></p>
 </div></footer>
 
+<script src="config.js"></script>
+<script src="site.js"></script>
 </body>
 </html>

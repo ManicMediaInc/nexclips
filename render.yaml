@@ -1,7 +1,7 @@
 # NexClips static site. Only public/ is published.
-# Subresources are same-origin (styles.css, favicon.ico, sample posters and videos).
-# Stripe checkout, YouTube attribution, NexParty, and mailto links are top-level
-# navigations, not scripts, frames, or fetch calls, so they are not allowlisted.
+# Subresources are same-origin, plus GoatCounter when a code is set in public/config.js
+# (script https://gc.zgo.at, count endpoint https://*.goatcounter.com).
+# Stripe, YouTube, and mailto links are top-level navigations, not allowlisted.
 services:
   - type: web
     name: nexclips
@@ -15,10 +15,10 @@ services:
       # files are opened directly. The page's own subresources stay restricted.
       - path: /
         name: Content-Security-Policy
-        value: "default-src 'none'; script-src 'none'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'none'; connect-src 'none'; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
+        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
       - path: /index.html
         name: Content-Security-Policy
-        value: "default-src 'none'; script-src 'none'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'none'; connect-src 'none'; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
+        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
       - path: /*
         name: X-Frame-Options
         value: DENY
