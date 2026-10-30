@@ -1,0 +1,5 @@
+# Generated from public/config.js by scripts/generate-seo.mjs. Do not edit by hand.
+User-agent: *
+Allow: /
+
+Sitemap: https://nexclips.onrender.com/sitemap.xml

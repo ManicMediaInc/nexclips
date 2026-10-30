@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs><linearGradient id="ncg" x1="40" y1="40" x2="472" y2="472" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/></linearGradient><linearGradient id="ncp" x1="184" y1="150" x2="330" y2="384" gradientUnits="userSpaceOnUse"><stop offset="0.15" stop-color="#8B5CF6"/><stop offset="0.95" stop-color="#22D3EE"/></linearGradient></defs>
+  <path fill-rule="evenodd" fill="url(#ncg)" d="M152,40 H360 A112,112 0 0 1 472,152 V360 A112,112 0 0 1 360,472 H152 A112,112 0 0 1 40,360 V152 A112,112 0 0 1 152,40 Z M154,76 H358 A78,78 0 0 1 436,154 V358 A78,78 0 0 1 358,436 H154 A78,78 0 0 1 76,358 V154 A78,78 0 0 1 154,76 Z"/>
+  <path fill="url(#ncp)" d="M184.00,159.30 L184.00,262.61 A8,8 0 0 0 196.40,269.29 L293.65,205.17 A8,8 0 0 0 293.27,191.57 L211.05,143.74 A18,18 0 0 0 184.00,159.30 Z"/>
+  <path fill="url(#ncp)" d="M187.60,303.84 L323.44,214.27 A8,8 0 0 1 331.87,214.03 L371.32,236.98 A22,22 0 0 1 371.32,275.02 L211.05,368.26 A18,18 0 0 1 184.00,352.70 L184.00,310.52 A8,8 0 0 1 187.60,303.84 Z"/>
+</svg>

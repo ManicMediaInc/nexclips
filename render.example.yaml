@@ -1,0 +1,37 @@
+# NexClips static site. Only public/ is published.
+# Subresources are same-origin, plus GoatCounter when a code is set in public/config.js
+# (script https://gc.zgo.at, count endpoint https://*.goatcounter.com).
+# Stripe, YouTube, and mailto links are top-level navigations, not allowlisted.
+services:
+  - type: web
+    name: nexclips
+    runtime: static
+    # public/ is already the publishable site. `true` satisfies the required build command.
+    buildCommand: "true"
+    staticPublishPath: ./public
+    routes:
+      - type: redirect
+        source: /samples/s1.mp4
+        destination: /media/sample-clip.mp4
+      - type: redirect
+        source: /samples/s1.jpg
+        destination: /media/sample-poster.jpg
+    headers:
+      # CSP is a document policy. Apply it to HTML only. Chrome's image and video
+      # viewers use inline styles, so a site-wide CSP reports violations when those
+      # files are opened directly. The page's own subresources stay restricted.
+      - path: /
+        name: Content-Security-Policy
+        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
+      - path: /index.html
+        name: Content-Security-Policy
+        value: "default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' https://gc.zgo.at https://*.goatcounter.com; media-src 'self'; font-src 'self'; connect-src https://gc.zgo.at https://*.goatcounter.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; manifest-src 'none'"
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), usb=(), xr-spatial-tracking=()"
