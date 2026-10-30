@@ -206,34 +206,24 @@ h3 { font-size: 1.15rem; }
   scroll-snap-type: x mandatory;
   padding-bottom: 6px;
 }
-.vclip { flex: 0 0 78%; scroll-snap-align: center; margin: 0; }
+.vclip { flex: 0 0 78%; min-width: 0; scroll-snap-align: center; margin: 0; }
 .vclip video {
   display: block;
   width: 100%;
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 9 / 16;
   object-fit: cover;
   border-radius: 24px;
   border: 1px solid var(--line);
   background: #000;
 }
+.vclip.demo video {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.55), 0 0 28px rgba(34, 211, 238, 0.4);
+}
 .vclip figcaption { margin-top: 8px; font-size: 0.9rem; font-weight: 600; }
 .vclip small { display: block; margin-top: 2px; font-weight: 400; font-size: 0.72rem; color: var(--muted); }
 .vclip small a { color: var(--muted); }
-.slot-frame {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 8px;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  padding: 16px;
-  border-radius: 24px;
-  border: 1.5px dashed #22D3EE;
-  background: #10284A;
-  text-align: center;
-}
-.slot-frame p { color: #94A3B8; font-size: 0.95rem; max-width: none; margin: 0; }
-.slot-frame .kicker { color: #22D3EE; }
 
 details {
   background: var(--card);
